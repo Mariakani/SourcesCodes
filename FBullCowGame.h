@@ -11,7 +11,7 @@ struct FBullCowCount
 
 
 class FBullCowGame {
-	
+
 public:
 	FBullCowGame();
 
@@ -21,14 +21,13 @@ public:
 
 
 	void Reset();
-	
+
 	bool IsGameWOn() const;
-	
-	bool CheckGuessValidity(FString);  //TODO make a more rich return value
-	//counts bulls and cows and increase the tries
+
+	bool CheckGuessValidity(FString);
 	FBullCowCount SubmitGuess(FString);
 
-	//provide a method for counting bulls and cows and increase the turn #
+
 private:
 	int32 MyCurrentTry;
 	int32 MyMaxtries ;
