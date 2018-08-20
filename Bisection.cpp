@@ -1,3 +1,9 @@
+//This codes was design to find the root of a function using bisection method.
+//This source codes is free to public
+//
+
+
+
 #include <iostream>
 #include <stdlib.h>
 #include<limits>
