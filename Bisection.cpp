@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+
 #include<limits>
 #include <math.h>
 #include<float.h>
@@ -23,6 +24,7 @@ float bisection(const float left, const float right,const float precision, const
 float bisectionHelper(const float left, const float right,const float precision, const float minIntervalSize)
 
 {
+	//errors checking to optimize the appropriateness of the values enter.
 	if (precision  <  0)
 	{
 		return std::numeric_limits<float>::quiet_NaN();
@@ -32,14 +34,19 @@ float bisectionHelper(const float left, const float right,const float precision,
 	{
 		return std::numeric_limits<float>::quiet_NaN();
 	}
+	//bisction algorihms implementations
 	float mid_point = (left+right)/2;
 
-	if (f(mid_point) == 0 || fabs(f(mid_point)) <= precision)
+	if (f(mid_point) == 0)
 	{
 			return mid_point;
 	}
-
-	if (f(right) * f(mid_point) < 0 && f(right) > 0)
+   if (fabs(f(mid_point)) <= precision)
+	 {
+		 return mid_point;
+	 }
+	 else{
+		 if (f(right) * f(mid_point) < 0 )
 	{
 		float templeft = left;
 		templeft = mid_point;
@@ -48,13 +55,14 @@ float bisectionHelper(const float left, const float right,const float precision,
 	}
 	else
 	{
-	 float tempright = right;
+		 float tempright = right;
 	  tempright = mid_point;
 	 return  bisectionHelper(left,right,precision, minIntervalSize);
 	}
 
 }
 
+}
 float bisection(const float left, const float right, const float precision, const float minIntervalSize)
 {
 	return bisectionHelper(left,  right, precision, minIntervalSize);

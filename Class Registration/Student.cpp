@@ -4,16 +4,15 @@
 using namespace std;
 
 
-Student::Student(string first_Name, string last_Name, string city, string address)
+Student::Student(string f_Name, string l_Name, string city_Name, string a_Name);
 {
-first_Name = " ";
-last_Name = " ";
-city = " ";
-address = " ";
+  first_Name = f_Name;
+  last_Name = l_Name;
+  city = city_Name;
+  address = a_Name;
 }
-Student::~Student(){
+Student::~Student(){}
 
-}
 string Teacher::get_firstname(string first_Name)
 {
   return first_Name;
